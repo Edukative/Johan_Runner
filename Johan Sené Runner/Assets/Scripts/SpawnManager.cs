@@ -7,27 +7,26 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] obstacles;
     public int obsIndex;
     public GameObject ObstaclePrefab;
-    private Vector3 Spawpos = new Vector3(25, 0.5f, 0);
+    private Vector3 Spawpos = new Vector3(34, 0, 0);
 
     private float StartDelay = 2;
     private float RepeatRate = 1;
 
+    private PlayerController playerControllerScript;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnObstacle", StartDelay, RepeatRate);    
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
+        InvokeRepeating("SpawnObstacle", StartDelay, RepeatRate);
+        playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     void SpawnObstacle ()
     {
-        int obsIndex = Random.Range(0, obstacles.Length);
-        Instantiate(obstacles[obsIndex], Spawpos,
-            obstacles[obsIndex].transform.rotation);
+        if (!playerControllerScript.isGameOver)
+        {
+            int obsIndex = Random.Range(0, obstacles.Length);
+            Instantiate(obstacles [obsIndex], Spawpos, obstacles[obsIndex].transform.rotation);
+        }
+      
     }
 }

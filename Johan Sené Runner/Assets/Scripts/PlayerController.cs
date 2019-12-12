@@ -11,12 +11,13 @@ public class PlayerController : MonoBehaviour
 
     public float GravityModifier;
 
-
+    //something
 
 
     bool IsOnGround = true;
 
     public bool isGameOver = false;
+    public bool restart = false;
 
     private Animator playerAnim;
 
@@ -61,6 +62,14 @@ public class PlayerController : MonoBehaviour
             playerAnim.SetTrigger("Jump_trig");
             playerAudio.PlayOneShot(jumpAudio);
             
+        }
+        else if (isGameOver && Input.GetKeyDown(KeyCode.Space))
+        {
+            isGameOver = false;
+            hp = 4;
+            loseHp();
+            restart = true;
+            playerAnim.SetBool("Death_b", false);
         }
     }   
     void loseHp()

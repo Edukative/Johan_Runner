@@ -12,12 +12,22 @@ public class SpawnManager : MonoBehaviour
     private float StartDelay = 2;
     private float RepeatRate = 1;
 
+    public float repeatRateMin = 1;
+    public float repeatRateMax = 3;
+
+
     private PlayerController playerControllerScript;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnObstacle", StartDelay, RepeatRate);
+        //InvokeRepeating("SpawnObstacle", StartDelay, RepeatRate);
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
+
+        Invoke("SpawnObstacle", (Random.Range(repeatRateMin, repeatRateMax)));
+    }
+    void Update()
+    {
+        if (Invoke("SpawnObstacle"; (Random.Range(repeatRateMin, repeatRateMax)
     }
 
     void SpawnObstacle ()
@@ -26,6 +36,10 @@ public class SpawnManager : MonoBehaviour
         {
             int obsIndex = Random.Range(0, obstacles.Length);
             Instantiate(obstacles [obsIndex], Spawpos, obstacles[obsIndex].transform.rotation);
+
+            float randomDelay = Random.Range(repeatRateMin, repeatRateMax);
+            Debug.Log("It's actually working" + randomDelay);
+            Invoke("SpawnObstacle", randomDelay);
         }
       
     }

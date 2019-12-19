@@ -27,7 +27,10 @@ public class SpawnManager : MonoBehaviour
     }
     void Update()
     {
-        if (Invoke("SpawnObstacle"; (Random.Range(repeatRateMin, repeatRateMax)
+        if (playerControllerScript.restart)
+        {
+            (Invoke("SpawnObstacle",(Random.Range(repeatRateMin, repeatRateMax);
+        }
     }
 
     void SpawnObstacle ()

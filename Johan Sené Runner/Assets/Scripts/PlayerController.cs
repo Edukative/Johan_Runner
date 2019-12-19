@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public float GravityModifier;
 
-    //something
+
 
 
     bool IsOnGround = true;

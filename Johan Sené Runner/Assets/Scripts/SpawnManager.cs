@@ -19,6 +19,7 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("SpawnObstacle", StartDelay, RepeatRate);
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         Invoke("SpawnObstacle", (Random.Range(repeatRateMin, repeatRateMax)));
     }
@@ -28,6 +29,8 @@ public class SpawnManager : MonoBehaviour
         {
             (Invoke("SpawnObstacle",(Random.Range(repeatRateMin, repeatRateMax);
         }
+=======
+>>>>>>> parent of 9ce4725... Polished version
 =======
 >>>>>>> parent of 9ce4725... Polished version
     }
